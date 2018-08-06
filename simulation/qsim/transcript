@@ -2,27 +2,27 @@
 # ** Warning: (vlib-34) Library already exists at "work".
 # 
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 03:16:02 on Aug 06,2018
+# Start time: 03:43:02 on Aug 06,2018
 # vlog -work work ula.vo 
 # -- Compiling module ula
 # 
 # Top level modules:
 # 	ula
-# End time: 03:16:02 on Aug 06,2018, Elapsed time: 0:00:00
+# End time: 03:43:02 on Aug 06,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 03:16:02 on Aug 06,2018
-# vlog -work work Waveform2.vwf.vt 
+# Start time: 03:43:02 on Aug 06,2018
+# vlog -work work Waveform.vwf.vt 
 # -- Compiling module ula_vlg_sample_tst
 # -- Compiling module ula_vlg_check_tst
 # -- Compiling module ula_vlg_vec_tst
 # 
 # Top level modules:
 # 	ula_vlg_vec_tst
-# End time: 03:16:02 on Aug 06,2018, Elapsed time: 0:00:00
+# End time: 03:43:02 on Aug 06,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -c -do "ula.do" 
-# Start time: 03:16:02 on Aug 06,2018
+# Start time: 03:43:02 on Aug 06,2018
 # Loading work.ula_vlg_vec_tst
 # Loading work.ula
 # Loading cycloneive_ver.cycloneive_io_obuf
@@ -39,7 +39,7 @@
 # Loading work.ula_vlg_sample_tst
 # Loading work.ula_vlg_check_tst
 # Simulation passed !
-# ** Note: $finish    : Waveform2.vwf.vt(430)
+# ** Note: $finish    : Waveform.vwf.vt(430)
 #    Time: 1 us  Iteration: 0  Instance: /ula_vlg_vec_tst/tb_out
-# End time: 03:16:03 on Aug 06,2018, Elapsed time: 0:00:01
+# End time: 03:43:03 on Aug 06,2018, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
