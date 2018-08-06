@@ -44,7 +44,7 @@ architecture ula_arch of ula is
 			return temp;
 		end soma_s1;
 		
-	function soma_s2 ( e1:STD_LOGIC_VECTOR; e2:STD_LOGIC_VECTOR) --parte do s1 (do bit 0 ao 7) 
+	function soma_s2 ( e1:STD_LOGIC_VECTOR; e2:STD_LOGIC_VECTOR) --parte do s1 (do bit 8 ao 15) 
 	  return STD_LOGIC_VECTOR IS VARIABLE temp : STD_LOGIC_VECTOR ( 7 downto 0);
 		begin
 			saida_aux <= e1 + e2;
@@ -53,6 +53,26 @@ architecture ula_arch of ula is
 			end loop;
 			return temp;
 		end soma_s2;
+		
+	function sub_s1 ( e1:STD_LOGIC_VECTOR; e2:STD_LOGIC_VECTOR) --parte do s1 (do bit 0 ao 7) 
+	  return STD_LOGIC_VECTOR IS VARIABLE temp : STD_LOGIC_VECTOR ( 7 downto 0);
+		begin
+			saida_aux <= e1 - e2;
+			for i IN 15 DOWNTO 8 loop
+				temp(i-8) := saida_aux(i);
+			end loop;
+			return temp;
+		end sub_s1;
+		
+	function sub_s2 ( e1:STD_LOGIC_VECTOR; e2:STD_LOGIC_VECTOR) --parte do s1 (do bit 8 ao 15) 
+	  return STD_LOGIC_VECTOR IS VARIABLE temp : STD_LOGIC_VECTOR ( 7 downto 0);
+		begin
+			saida_aux <= e1 - e2;
+			for i IN 7 DOWNTO 0 loop
+				temp(i) := saida_aux(i);
+			end loop;
+			return temp;
+		end sub_s2;
 	
 	function mult_s1 ( e1:STD_LOGIC_VECTOR; e2:STD_LOGIC_VECTOR) --parte do s1 (do bit 0 ao 7) 
 	  return STD_LOGIC_VECTOR IS VARIABLE temp : STD_LOGIC_VECTOR ( 7 downto 0);
@@ -137,7 +157,8 @@ architecture ula_arch of ula is
 					 -- selecao de operacao
 					 when addop => s1 <= soma_s1(e1 or "0000000000000000",e2 or "0000000000000000");
 										s2 <= soma_s2(e1 or "0000000000000000",e2 or "0000000000000000");
-					 when subop => s1 <= e1 - e2;
+					 when subop => s1 <= sub_s1(e1 or "0000000000000000",e2 or "0000000000000000");
+										s2 <= sub_s2(e1 or "0000000000000000",e2 or "0000000000000000");
 					 when andop => s1 <= e1 and e2;
 					 when orop => s1 <= e1 or e2;
 					 when xorop => s1 <= e1 xor e2;
