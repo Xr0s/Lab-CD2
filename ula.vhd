@@ -34,17 +34,7 @@ architecture ula_arch of ula is
 	
 	signal saida_aux:std_logic_vector(15 downto 0);
 	
-	function mult_s1 ( e1:STD_LOGIC_VECTOR; e2:STD_LOGIC_VECTOR) 
-	  return STD_LOGIC_VECTOR IS VARIABLE temp : STD_LOGIC_VECTOR ( 7 downto 0);
-		begin
-			saida_aux <= e1 * e2;
-			for i IN 7 DOWNTO 0 loop
-				temp(i) := saida_aux(i);
-			end loop;
-			return temp;
-		end mult_s1;
-	
-	function mult_s2 ( e1:STD_LOGIC_VECTOR; e2:STD_LOGIC_VECTOR) 
+	function mult_s1 ( e1:STD_LOGIC_VECTOR; e2:STD_LOGIC_VECTOR) --parte do s1 (do bit 0 ao 7) 
 	  return STD_LOGIC_VECTOR IS VARIABLE temp : STD_LOGIC_VECTOR ( 7 downto 0);
 		begin
 			saida_aux <= e1 * e2;
@@ -52,8 +42,19 @@ architecture ula_arch of ula is
 				temp(i-8) := saida_aux(i);
 			end loop;
 			return temp;
+		end mult_s1;	
+	
+	function mult_s2 ( e1:STD_LOGIC_VECTOR; e2:STD_LOGIC_VECTOR) --parte do s2 (do bit 8 ao 15)
+	  return STD_LOGIC_VECTOR IS VARIABLE temp : STD_LOGIC_VECTOR ( 7 downto 0);
+		begin
+			saida_aux <= e1 * e2;
+			for i IN 7 DOWNTO 0 loop
+				temp(i) := saida_aux(i);
+			end loop;
+			return temp;
 		end mult_s2;
 	
+	--00000000 é false e 11111111 é true, vale para todos.
 	function igual (e1 : STD_LOGIC_VECTOR; e2 : STD_LOGIC_VECTOR) return STD_LOGIC_VECTOR IS
 		begin	
 			if (e1=e2) then
@@ -127,15 +128,13 @@ architecture ula_arch of ula is
 					 when notop => s1 <= not e1;
 					 when multop => s1 <= mult_s1(e1,e2);
 										 s2 <= mult_s2(e1,e2);
-					 when igualop => s1 <= igual(e1,e2);
+					 when igualop => s1 <= igual(e1,e2); 
 					 when menorop => s1 <= menor(e1,e2);
 					 when maiorop => s1 <= maior(e1,e2);
 					 when menor_igualop => s1 <= menor_igual(e1,e2);
 					 when maior_igualop => s1 <= maior_igual(e1,e2);
 					 when shift_leftop => s1 <= shl(e1);
-					
-						
-					 when others => s1 <= e1;
+					 when others => s1 <= "00000000"; --op code incorreto
 				end case;
 		end process;
 		
