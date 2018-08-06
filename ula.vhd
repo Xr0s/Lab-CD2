@@ -12,7 +12,7 @@ end ula;
 
 architecture ula_arch of ula is
  -- constantes que representam as operacoes da ula
-	constant addop : std_logic_vector (7 downto 0)  := "00000000";
+	constant addop : std_logic_vector (7 downto 0)  := "10000000";
 	constant subop : std_logic_vector (7 downto 0)  := "00000001";
 	constant andop : std_logic_vector (7 downto 0)  := "00000010";
 	constant orop : std_logic_vector (7 downto 0)   :=  "00000011";
@@ -33,6 +33,26 @@ architecture ula_arch of ula is
 	constant shift_leftop : std_logic_vector (7 downto 0)  := "00010100";
 	
 	signal saida_aux:std_logic_vector(15 downto 0);
+	
+	function soma_s1 ( e1:STD_LOGIC_VECTOR; e2:STD_LOGIC_VECTOR) --parte do s1 (do bit 0 ao 7) 
+	  return STD_LOGIC_VECTOR IS VARIABLE temp : STD_LOGIC_VECTOR ( 7 downto 0);
+		begin
+			saida_aux <= (e1 + e2) or "0000000000000000";
+			for i IN 15 DOWNTO 8 loop
+				temp(i-8) := saida_aux(i);
+			end loop;
+			return temp;
+		end soma_s1;
+		
+	function soma_s2 ( e1:STD_LOGIC_VECTOR; e2:STD_LOGIC_VECTOR) --parte do s1 (do bit 0 ao 7) 
+	  return STD_LOGIC_VECTOR IS VARIABLE temp : STD_LOGIC_VECTOR ( 7 downto 0);
+		begin
+			saida_aux <= (e1 + e2) or "0000000000000000";
+			for i IN 15 DOWNTO 8 loop
+				temp(i-8) := saida_aux(i);
+			end loop;
+			return temp;
+		end soma_s2;
 	
 	function mult_s1 ( e1:STD_LOGIC_VECTOR; e2:STD_LOGIC_VECTOR) --parte do s1 (do bit 0 ao 7) 
 	  return STD_LOGIC_VECTOR IS VARIABLE temp : STD_LOGIC_VECTOR ( 7 downto 0);
@@ -115,7 +135,8 @@ architecture ula_arch of ula is
 			begin
 				case op is
 					 -- selecao de operacao
-					 when addop => s1 <= e1 + e2;
+					 when addop => s1 <= soma_s1(e1,e2);
+										s2 <= soma_s2(e1,e2);
 					 when subop => s1 <= e1 - e2;
 					 when andop => s1 <= e1 and e2;
 					 when orop => s1 <= e1 or e2;

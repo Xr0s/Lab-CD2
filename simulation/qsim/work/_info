@@ -9,13 +9,13 @@ z2
 cModel Technology
 Z0 dC:/Users/italo/OneDrive/Documentos/Lab-CD2/simulation/qsim
 vula
-Z1 !s110 1533530082
+Z1 !s110 1533536162
 !i10b 1
-!s100 ?M]SmGG3gSAYOj9FXE^VW0
-Idz?im9[j;UG4j>BZU1Tof2
+!s100 ^oCUh^AWGDY4VT;V0kmO61
+IEH>V0T44HYAI:H]P4zj4]1
 Z2 V`JN@9S9cnhjKRR_L]QIcM3
 R0
-w1533530081
+w1533536160
 8ula.vo
 Fula.vo
 L0 32
@@ -23,7 +23,7 @@ Z3 OV;L;10.3d;59
 r1
 !s85 0
 31
-!s108 1533530082.494000
+!s108 1533536162.466000
 !s107 ula.vo|
 !s90 -work|work|ula.vo|
 !i113 1
@@ -32,27 +32,27 @@ vula_vlg_check_tst
 R1
 !i10b 1
 !s100 ZaNiRL[AC=;Si8OC7HcoR3
-Ig4nBk70=:KaHB4Gc98b2^3
+Ik6>1;de?:zEj`dc9Yb<fN3
 R2
 R0
-Z5 w1533530079
-Z6 8Waveform1.vwf.vt
-Z7 FWaveform1.vwf.vt
+Z5 w1533536159
+Z6 8Waveform2.vwf.vt
+Z7 FWaveform2.vwf.vt
 L0 62
 R3
 r1
 !s85 0
 31
-Z8 !s108 1533530082.646000
-Z9 !s107 Waveform1.vwf.vt|
-Z10 !s90 -work|work|Waveform1.vwf.vt|
+Z8 !s108 1533536162.570000
+Z9 !s107 Waveform2.vwf.vt|
+Z10 !s90 -work|work|Waveform2.vwf.vt|
 !i113 1
 R4
 vula_vlg_sample_tst
 R1
 !i10b 1
 !s100 ?L3^1_E52V]VO]9G2zzXl3
-IPUe:b6hYmJ6mU0oUkdKWj1
+IOJP5hMQlOW3ZFQSJ[mN<i2
 R2
 R0
 R5
@@ -71,8 +71,8 @@ R4
 vula_vlg_vec_tst
 R1
 !i10b 1
-!s100 0QE6GbQM;15da]ZOAQL6e2
-I:nS@fLhbgEW1NSaNCS>k<3
+!s100 [;?:FMHVmKTUa=eOZ<NO70
+IR6cWz`j`ajKm4]?J7CamL2
 R2
 R0
 R5
